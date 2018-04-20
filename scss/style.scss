@@ -1,0 +1,69 @@
+$aqua: #28dde0;
+$plum: #5634d1;
+
+$html-background: $plum;
+$nav-background: $aqua;
+$nav-color: white;
+$nav-width: 20rem;
+$z-nav-toggle: 2;
+$z-nav: 1;
+
+* {
+	box-sizing: border-box;
+	&:focus { outline: none; }
+}
+
+html, body {
+	background: $html-background;
+	color: white;
+	font-size: 1rem;
+}
+
+a {
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  &:hover { opacity: 0.8; }
+}
+
+/* nav toggle */
+.nav-toggle {
+	user-select: none;
+	cursor: pointer;
+	left: 2rem;
+	position: fixed;
+	top: 2rem;
+	z-index: $z-nav-toggle;
+  &:hover { opacity: 0.8; }
+}
+/* nav */
+.nav {
+  @media screen and (min-width: 1280px){
+     transition : top 0.5s ease;
+     width: 100%;
+     height: $nav-width;
+  }
+  @media screen and (max-width: 1280px){
+     transition : left 0.5s ease;
+     width: $nav-width;
+     height: 100vh;
+  }
+	background: $nav-background;
+	color: $nav-color;
+  cursor: pointer;
+	font-size: 1rem;
+
+	left: -$nav-width;
+	padding: 6rem 2rem 2rem 2rem;
+	position: fixed;
+	top: -100vh;
+	
+	z-index: $z-nav;
+	&.expanded { left: 0; top:0}
+  
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+}
